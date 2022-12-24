@@ -1,12 +1,6 @@
-import React from 'react'
-interface PropsLevel1 {
-  title: string
-  allocation: number
-  classFather?: string
-  classSon?: string
-} 
+import { PropsLevel } from "../../interfaces/index"
 
-const FirstLevel = ({title, allocation, classFather, classSon}: PropsLevel1) => {
+const FirstLevel = ({title, allocation, classFather, classSon}: PropsLevel) => {
   return (
     <h2 className={classFather}>-<span className={classSon}>{`${title} a $${allocation}`}</span></h2>
   )

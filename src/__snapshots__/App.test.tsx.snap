@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendered FirstLevel Component snapshot 1`] = `
+<h2
+  className="ms-5"
+>
+  -
+  <span
+    className="badge text-bg-info"
+  >
+    Manager X a $2300
+  </span>
+</h2>
+`;
