@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import FirstLevel from "./components/FirstLevel/FirstLevel";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Popover from "react-bootstrap/Popover";
-import { Button } from "react-bootstrap";
+import { Button, OverlayTrigger } from "react-bootstrap";
 import { Child } from "./interfaces/index"
+import PopoverCustom from "./components/Popover/Popover";
 import "bootstrap/dist/css/bootstrap.css";
 import './App.css';
 
@@ -66,34 +65,6 @@ function App() {
     return total;
   };
 
-  const popover = (index: number) => (
-    <Popover id="popover-basic">
-      <Popover.Header as="h3">Add role position</Popover.Header>
-      <Popover.Body>
-        
-        <div className="input-group mb-3">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Name"
-            aria-label="Type"
-            aria-describedby="basic-addon1"
-            onChange={(e) => setType(e.target.value)}
-          />
-          <input
-            type="number"
-            className="form-control"
-            placeholder="Allocation"
-            aria-label="Allocation"
-            aria-describedby="basic-addon1"
-            onChange={(e) => setAllocation(parseInt(e.target.value))}
-          />
-          <Button onClick={() => addItemtoArray(index)}>save</Button>
-        </div>
-      </Popover.Body>
-    </Popover>
-  );
-
   return (
     <div className="App">
       <FirstLevel
@@ -110,7 +81,7 @@ function App() {
               classFather="ms-3"
               classSon="badge text-bg-primary"
             />
-            <OverlayTrigger trigger="click" placement="right" overlay={popover(index)}>
+            <OverlayTrigger trigger="click" placement="right" overlay={PopoverCustom(index, setType, setAllocation, addItemtoArray)}>
               <a aria-label="add-btn"><Button variant="outline-success">+</Button></a>
             </OverlayTrigger>
           </div>
